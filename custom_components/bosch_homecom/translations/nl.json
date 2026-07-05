@@ -305,6 +305,9 @@
       "dhw": {
         "name": "{circuit} temperatuur"
       },
+      "dhw_wddw2_temperature": {
+        "name": "Warmwatertemperatuur"
+      },
       "hs": {
         "name": "Warmtebron"
       },
@@ -312,7 +315,10 @@
         "name": "Buitentemperatuur"
       },
       "notifications": {
-        "name": "Meldingen"
+        "name": "Meldingen",
+        "state": {
+          "none": "Geen"
+        }
       },
       "energy_history_hourly": {
         "name": "Energiegeschiedenis (uurlijks)"
@@ -370,6 +376,12 @@
       },
       "dhw_heat_source_starts": {
         "name": "Bedrijfscycli"
+      },
+      "dhw_delta_t": {
+        "name": "Temperatuurverschil"
+      },
+      "dhw_heating_active": {
+        "name": "Warmwaterproductie"
       },
       "hs_actual_power": {
         "name": "Vermogen"

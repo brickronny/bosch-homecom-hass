@@ -307,6 +307,9 @@
       "dhw": {
         "name": "{circuit} Temperatur"
       },
+      "dhw_wddw2_temperature": {
+        "name": "Warmwassertemperatur"
+      },
       "hs": {
         "name": "Wärmequelle"
       },
@@ -314,7 +317,10 @@
         "name": "Außentemperatur"
       },
       "notifications": {
-        "name": "Benachrichtigungen"
+        "name": "Benachrichtigungen",
+        "state": {
+          "none": "Keine"
+        }
       },
       "energy_history_hourly": {
         "name": "Energieverlauf (stündlich)"
@@ -372,6 +378,12 @@
       },
       "dhw_heat_source_starts": {
         "name": "Betriebszyklen"
+      },
+      "dhw_delta_t": {
+        "name": "Temperaturdifferenz"
+      },
+      "dhw_heating_active": {
+        "name": "Wassererwärmung"
       },
       "hs_actual_power": {
         "name": "Leistung"

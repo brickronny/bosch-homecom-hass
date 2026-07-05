@@ -305,6 +305,9 @@
       "dhw": {
         "name": "{circuit} temperature"
       },
+      "dhw_wddw2_temperature": {
+        "name": "Water heater temperature"
+      },
       "hs": {
         "name": "Heat source"
       },
@@ -312,7 +315,10 @@
         "name": "Outdoor temperature"
       },
       "notifications": {
-        "name": "Notifications"
+        "name": "Notifications",
+        "state": {
+          "none": "None"
+        }
       },
       "energy_history_hourly": {
         "name": "Energy history (hourly)"
@@ -370,6 +376,12 @@
       },
       "dhw_heat_source_starts": {
         "name": "Heat Source Starts"
+      },
+      "dhw_delta_t": {
+        "name": "Temperature Difference"
+      },
+      "dhw_heating_active": {
+        "name": "Water Heating"
       },
       "hs_actual_power": {
         "name": "Power"

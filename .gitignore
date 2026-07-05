@@ -169,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+PROGRESS.md
+# Claude Code memory (auto-generated, not for version control)
+memory/

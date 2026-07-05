@@ -28,6 +28,9 @@
         "dhw_heat_source_starts": {
           "default": "mdi:counter"
         },
+        "dhw_heating_active": {
+          "default": "mdi:heating-coil"
+        },
         "hs_operation_hours": {
           "default": "mdi:timer-sand"
         },

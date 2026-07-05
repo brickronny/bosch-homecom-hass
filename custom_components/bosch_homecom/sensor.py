@@ -242,8 +242,18 @@ async def async_setup_entry(
                     None
                 ]  # fallback to single set if not per circuit
 
+                dhw_by_id = {
+                    ref["id"].split("/")[-1]: ref
+                    for ref in coordinator.data.dhw_circuits
+                    if re.fullmatch(r"dhw\d", ref["id"].split("/")[-1])
+                }
+
                 for desc in wddw2_desc:
                     for dhw_id in dhw_ids:
+                        last_key = desc.get("path", [""])[-1]
+                        dhw = dhw_by_id.get(dhw_id) if dhw_id else None
+                        if dhw is not None and dhw.get(last_key) is None:
+                            continue
                         path = desc.get("path", [])
                         resolved_path = _resolve_path(path, dhw_id)
                         unique_suffix = (
@@ -1203,8 +1213,7 @@ class BoschComSensorDhwWddw2(BoschComSensorBase):
             unique_id=f"{coordinator.unique_id}-{field}-sensor",
             icon="mdi:water-boiler",
         )
-        self._attr_translation_key = "dhw"
-        self._attr_translation_placeholders = {"circuit": field}
+        self._attr_translation_key = "dhw_wddw2_temperature"
         self._attr_unique_id = f"{coordinator.unique_id}-{field}"
         self._attr_suggested_object_id = field + "_sensor"
         self._attr_should_poll = False
@@ -1404,7 +1413,7 @@ class BoschComDerivedDeltaTSensor(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator, name: str, unique_suffix: str):
         super().__init__(coordinator)
         self._attr_has_entity_name = True
-        self._attr_name = name
+        self._attr_translation_key = "dhw_delta_t"
         self._attr_unique_id = f"{coordinator.unique_id}-{unique_suffix}"
         self._attr_device_info = coordinator.device_info
         self._attr_device_class = SensorDeviceClass.TEMPERATURE
@@ -1500,7 +1509,7 @@ class BoschComHeatingActiveBinarySensor(CoordinatorEntity, BinarySensorEntity):
     ):
         super().__init__(coordinator)
         self._attr_has_entity_name = True
-        self._attr_name = name
+        self._attr_translation_key = "dhw_heating_active"
         self._attr_unique_id = f"{coordinator.unique_id}-{unique_suffix}"
         self._attr_device_info = coordinator.device_info
         self._delta_t_threshold = delta_t_threshold
